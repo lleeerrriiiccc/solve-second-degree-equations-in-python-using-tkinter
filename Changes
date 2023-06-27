@@ -1,0 +1,68 @@
+
+
+
+from tkinter import Tk, Label, Entry, Button, messagebox
+import customtkinter
+import math as math
+from math import sqrt
+def calc():
+    try:
+        a = float(a_entry.get())
+        b = float(b_entry.get())
+        c = float(c_entry.get())
+        z = float(4*a*c)
+        y = float(b*b)
+        x = float(2*a)
+        l = float(b*(-1))
+        p = float(y-z)        
+        k = (math.sqrt(p))
+    except:  
+        
+        messagebox.showerror('error de calculo','La raiz es negativa no es posible dar un resultado')
+    else:
+        primerasolucion = str((l+k)/x)
+        segundasolucion = str((l-k)/x)
+        text = 'Soluciones:'
+        soluciones = list(text)
+        soluciones.append(primerasolucion)
+        soluciones.append(segundasolucion)
+        str(soluciones)
+        
+     #messagebox.showinfo("Las soluciones son:",soluciones)
+    soluciones_label = customtkinter.CTkLabel(window, text=soluciones, corner_radius=8)
+    soluciones_label.pack()
+        
+        
+
+
+    
+#pagina principal
+window = customtkinter.CTk()
+window.title("calculadora")
+window.geometry("300x200")
+title = customtkinter.CTkLabel(window, text='Calculadora equaciones de segundo grado')
+title.pack()
+#a
+
+a_entry = customtkinter.CTkEntry(window, placeholder_text="Escribe el valor de a:")
+a_entry.pack()
+#b
+
+b_entry = customtkinter.CTkEntry(window, placeholder_text="Escribe el valor de b:")
+b_entry.pack()
+#c
+
+c_entry = customtkinter.CTkEntry(window, placeholder_text="Escribe el valor de c:")
+c_entry.pack()
+#botones
+calc_button = customtkinter.CTkButton(window, text='Pulse para calcular', command=calc)
+calc_button.pack()
+#estetica
+customtkinter.set_appearance_mode("dark")
+customtkinter.set_default_color_theme("dark-blue")
+#labels
+
+
+
+
+window.mainloop()
